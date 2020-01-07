@@ -34,12 +34,17 @@ const App = () => {
   };
 
   const handleSelect = () => {
+    const count = names.length;
     let randomName = displayName;
-    while (randomName === displayName) {
-      const idx = Math.floor(Math.random() * names.length);
-      randomName = names[idx];
+    if(count !== 1) {
+      while (randomName === displayName) {
+        const idx = Math.floor(Math.random() * count);
+        randomName = names[idx];
+      }
+    } else {
+      randomName = names[0];
     }
-    setDisplayName(randomName);
+    setDisplayName(randomName); 
   };
 
   return (
